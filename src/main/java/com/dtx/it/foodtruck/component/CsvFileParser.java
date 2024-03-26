@@ -1,6 +1,6 @@
 package com.dtx.it.foodtruck.component;
 
-import com.dtx.it.foodtruck.entity.FoodFacility;
+import com.dtx.it.foodtruck.entity.FoodFacilityType;
 import com.opencsv.bean.CsvToBeanBuilder;
 import org.springframework.stereotype.Component;
 
@@ -16,10 +16,10 @@ import java.util.List;
 @Component
 public class CsvFileParser {
 
-    public List<FoodFacility> readCsvData(String filePath) {
+    public List<FoodFacilityType> readCsvData(String filePath) {
         try (java.io.FileReader fileReader = new java.io.FileReader(filePath)) {
-            return new CsvToBeanBuilder<FoodFacility>(fileReader)
-                    .withType(FoodFacility.class)
+            return new CsvToBeanBuilder<FoodFacilityType>(fileReader)
+                    .withType(FoodFacilityType.class)
                     .withIgnoreEmptyLine(true)
                     .build().parse();
         } catch (IOException e) {
@@ -35,7 +35,7 @@ public class CsvFileParser {
         //1.load created_by/modified_by combined csv
         CsvFileParser instance1 = new CsvFileParser();
         String allTableFileName = "Mobile_Food_Facility_Permit";
-        List<FoodFacility> csvDataList = instance1.readCsvData(filePath.getPath());
+        List<FoodFacilityType> csvDataList = instance1.readCsvData(filePath.getPath());
 
         System.out.println("======================================================");
         System.out.println("print out original non-included item count:" + csvDataList.size());

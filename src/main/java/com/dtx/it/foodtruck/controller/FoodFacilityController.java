@@ -1,6 +1,6 @@
 package com.dtx.it.foodtruck.controller;
 
-import com.dtx.it.foodtruck.entity.FoodFacility;
+import com.dtx.it.foodtruck.entity.FoodFacilityType;
 import com.dtx.it.foodtruck.service.FoodFacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,15 +25,15 @@ public class FoodFacilityController {
 
     // Endpoint to retrieve all shops
     @GetMapping("/getAll")
-    public ResponseEntity<List<FoodFacility>> getAll() {
-        List<FoodFacility> foodFacilityList = foodFacilityService.getAll();
+    public ResponseEntity<List<FoodFacilityType>> getAll() {
+        List<FoodFacilityType> foodFacilityList = foodFacilityService.getAll();
         return new ResponseEntity<>(foodFacilityList, HttpStatus.OK);
     }
 
     // Endpoint to retrieve list by its applicant
     @GetMapping("/{applicant}")
-    public ResponseEntity<List<FoodFacility>> getShopByLocationId(@PathVariable String applicant) {
-        List<FoodFacility> foodFacilityList = foodFacilityService.getByApplicant(applicant);
+    public ResponseEntity<List<FoodFacilityType>> getShopByLocationId(@PathVariable String applicant) {
+        List<FoodFacilityType> foodFacilityList = foodFacilityService.getByApplicant(applicant);
         if (foodFacilityList != null) {
             return new ResponseEntity<>(foodFacilityList, HttpStatus.OK);
         } else {

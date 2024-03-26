@@ -7,12 +7,12 @@ import java.util.List;
  * @author Andy Wang
  * @Created 2024/3/24 19:56
  */
-public class FoodFacilityGroup {
+public class FoodFacilityGroupType {
 
-    private List<FoodFacility> foodFacilityList;
+    private List<FoodFacilityType> foodFacilityList;
 
 
-    public List<FoodFacility> getFoodFacilityList() {
+    public List<FoodFacilityType> getFoodFacilityList() {
         if(this.foodFacilityList==null || this.foodFacilityList.isEmpty())
             this.foodFacilityList = new ArrayList<>();
         return this.foodFacilityList;

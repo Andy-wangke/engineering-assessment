@@ -1,5 +1,6 @@
 package com.dtx.it.foodtruck.entity;
 
+import com.opencsv.bean.CsvBindByName;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,10 +13,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BlocklotInfo {
 
+    @CsvBindByName(column = "blocklot")
     private String blocklot;
 
+    @CsvBindByName(column = "block")
     private String block;
 
+    @CsvBindByName(column = "lot")
     private String lot;
 
 }
